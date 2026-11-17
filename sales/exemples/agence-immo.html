@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit agencedelanjou.fr</title>
+<style>
+:root{--bg:#0B0D0F;--card:#131719;--line:#262D34;--fg:#F4F6F8;--mut:#9AA3AD;--acc:#E4572E}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{width:min(900px,100% - 2.5rem);margin:auto}h1,h2{font-weight:800;letter-spacing:-.03em;line-height:1.06;margin:0}
+h1{font-size:clamp(1.9rem,5vw,3rem)}h2{font-size:1.35rem;margin:2.6rem 0 1rem}
+.kick{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);font-weight:700}
+header{border-bottom:1px solid var(--line);padding:2.4rem 0;background:linear-gradient(180deg,#111518,transparent)}
+.head{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-end}
+.score{background:var(--card);border:1px solid var(--line);padding:1rem 1.4rem;text-align:center;min-width:150px}
+.score b{display:block;font-size:2.6rem;line-height:1;color:var(--acc);font-family:ui-monospace,monospace}
+.score span{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:var(--mut)}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.8rem;color:var(--mut);margin-top:1.2rem;font-variant-numeric:tabular-nums}
+.meta b{color:var(--fg);font-weight:600}
+section{padding:1rem 0 3rem}
+.f{border:1px solid var(--line);border-left:4px solid var(--acc);background:var(--card);padding:1.2rem 1.3rem;margin-bottom:.7rem}
+.f h3{margin:0 0 .4rem;font-size:1.02rem}
+.tag{font-size:.62rem;text-transform:uppercase;letter-spacing:.16em;font-weight:800;border:1px solid var(--acc);color:var(--acc);padding:.16rem .45rem;border-radius:2px;margin-right:.5rem;vertical-align:2px}
+.f p{margin:.3rem 0;color:var(--mut);font-size:.92rem}
+.f .fix{color:var(--fg);font-size:.9rem;margin-top:.7rem;padding-top:.7rem;border-top:1px dashed var(--line)}
+.f .fix b{color:var(--acc)}
+.ok{border-left-color:#2FB67C;border:1px solid var(--line);background:var(--card);padding:1rem 1.2rem;font-size:.9rem;color:var(--mut)}
+.tot{background:var(--card);border:1px solid var(--line);padding:1.4rem;margin-top:1.6rem}
+.tot b{font-size:1.5rem}
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--mut);font-size:.82rem}
+.btn{display:inline-block;background:var(--fg);color:#0B0D0F;font-weight:800;padding:.85rem 1.3rem;text-decoration:none;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em;margin-top:1rem}
+</style></head><body>
+<header><div class="wrap">
+<p class="kick">Audit technique — 17/11/2026 — Studio Vif</p>
+<div class="head">
+  <div><h1>agencedelanjou.fr</h1>
+  <p style="color:var(--mut);margin:.6rem 0 0;font-size:.9rem">agencedelanjou.fr</p>
+  <div class="meta"><span>Réponse HTTP <b>200</b></span><span>Premier octet <b>658 ms</b></span><span>Poids <b>60 Ko</b></span><span>HTTPS <b>oui</b></span></div></div>
+  <div class="score"><b>35</b><span>Critique</span></div>
+</div></div></header>
+<section><div class="wrap">
+<h2>Constats (6)</h2>
+<article class="f" data-id="no-redirect"><h3><span class="tag">Majeur</span>HTTP non redirigé</h3><p>La version http:// reste servie : contenu dupliqué et cookies non sécurisés.</p><p class="fix"><b>Correctif :</b> Redirection 301 http → https</p></article><article class="f" data-id="alt"><h3><span class="tag">Majeur</span>13 images sur 15 sans texte alternatif</h3><p>Non-conformité RGAA 1.1 : contenu invisible pour les lecteurs d'écran, et opportunité SEO perdue.</p><p class="fix"><b>Correctif :</b> Rédaction des textes alternatifs pertinents</p></article><article class="f" data-id="labels"><h3><span class="tag">Majeur</span>Champs de formulaire sans étiquette</h3><p>RGAA 11.1 : un utilisateur de lecteur d'écran ne sait pas quoi remplir.</p><p class="fix"><b>Correctif :</b> Labels explicites + aria-describedby</p></article><article class="f" data-id="meta"><h3><span class="tag">À corriger</span>Méta-description absente ou trop courte</h3><p>Google affiche un extrait aléatoire : le taux de clic chute.</p><p class="fix"><b>Correctif :</b> Réécriture des balises title/description page par page</p></article><article class="f" data-id="h1multi"><h3><span class="tag">À corriger</span>10 titres H1 sur la page</h3><p>La thématique principale devient ambiguë.</p><p class="fix"><b>Correctif :</b> Un seul H1, le reste en H2/H3</p></article><article class="f" data-id="consent"><h3><span class="tag">Bloquant</span>Trackers Google Analytics sans bandeau de consentement</h3><p>Les cookies de mesure et de publicité sont déposés avant tout accord. C'est le premier motif de contrôle de la CNIL, et le plus simple à signaler.</p><p class="fix"><b>Correctif :</b> Bandeau de consentement conforme (refus aussi simple que l'acceptation) + purge des tags avant accord</p></article>
+<div class="tot" style="border-left:4px solid var(--acc)"><p class="kick">Exposition</p><p style="margin:.5rem 0 0;font-size:.92rem">Les obligations d'accessibilité et de consentement se durcissent (EAA applicable depuis juin 2025, RGAA, art. 82 RGPD). Un signalement suffit à déclencher un contrôle ; les correctifs ci-dessus sont la parade la moins chère.</p></div>
+
+<div class="tot"><p class="kick">Mise en conformité</p><p style="margin:.4rem 0 0"><b>800 € HT</b> pour traiter l'intégralité des constats ci-dessus.</p>
+<p style="color:var(--mut);font-size:.88rem;margin-top:.6rem">Détail envoyé sur demande. Les points bloquants sont traités en priorité, sous 5 jours ouvrés.</p>
+<a class="btn" href="mailto:contact@studiovif.fr?subject=Audit%20agencedelanjou.fr">Demander le devis détaillé</a></div>
+<h2>Méthode</h2>
+<p style="color:var(--mut);font-size:.9rem">Relevé automatisé du 17/11/2026 15:53:46 sur la page d'accueil (HTML servi, en-têtes, temps de réponse). Référentiels : RGAA 4.1, WCAG 2.2 AA, RGPD, LCEN, Core Web Vitals. Un audit manuel des parcours clés est inclus dans la prestation. Relevé automatisé, non exhaustif.</p>
+</div></section>
+<footer><div class="wrap">Studio Vif — audit technique web, accessibilité &amp; conformité. contact@studiovif.fr</div></footer>
+</body></html>

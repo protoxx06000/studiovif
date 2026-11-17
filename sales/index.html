@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio Vif — mise en conformité web en 5 jours</title>
+<meta name="description" content="RGPD, accessibilité, vitesse : on relève les défauts réels de votre site, on chiffre, on corrige en 5 jours. Prix ferme, rapport avant/après.">
+<meta property="og:title" content="Studio Vif — mise en conformité web en 5 jours">
+<meta property="og:description" content="Votre site vous expose. On le corrige en 5 jours, prix ferme.">
+<meta name="theme-color" content="#0B0D0F">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<style>
+:root{--bg:#0B0D0F;--bg2:#111517;--line:#232A31;--fg:#F3F5F7;--mut:#98A1AB;--acc:#F2542D}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Archivo","Inter",system-ui,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:1.03;margin:0}
+h1{font-size:clamp(2.3rem,6.6vw,4.9rem);text-transform:uppercase}
+h2{font-size:clamp(1.7rem,4.2vw,3rem);text-transform:uppercase}
+h3{font-size:1.06rem}
+p{margin:0}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 2.6rem);margin-inline:auto}
+.kick{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);font-weight:800}
+.mut{color:var(--mut)}
+section{padding:clamp(3.4rem,7vw,6rem) 0;border-top:1px solid var(--line)}
+.topbar{background:var(--acc);color:#0B0D0F;text-align:center;font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.5rem 1rem}
+header{position:sticky;top:0;z-index:20;background:rgba(11,13,15,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+.logo{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;line-height:1}
+.logo small{display:block;font-size:.55rem;letter-spacing:.24em;color:var(--mut);margin-top:.3rem;font-weight:600}
+nav{display:none;gap:1.4rem;font-size:.85rem;color:var(--mut)}
+nav a{text-decoration:none}
+nav a:hover{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--acc);color:#0B0D0F;font-weight:800;text-decoration:none;padding:.85rem 1.3rem;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em;border:2px solid var(--acc);transition:.16s;border-radius:2px}
+.btn:hover{background:transparent;color:var(--acc)}
+.btn.line{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.line:hover{border-color:var(--acc);color:var(--acc)}
+.btn.big{padding:1.05rem 1.6rem;font-size:.88rem}
+.hero{padding:clamp(3rem,7vw,5.5rem) 0;border:0}
+.hero h1 span{color:var(--acc)}
+.lead{color:var(--mut);font-size:clamp(1rem,1.7vw,1.2rem);max-width:52ch;margin-top:1.4rem}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.facts{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:clamp(2.4rem,5vw,3.6rem)}
+.fact{background:var(--bg2);padding:1.3rem 1.2rem}
+.fact b{display:block;font-family:"Archivo",sans-serif;font-size:1.9rem;line-height:1;color:var(--acc)}
+.fact span{font-size:.78rem;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;display:block;margin-top:.5rem}
+.grid2{display:grid;gap:clamp(1.8rem,4vw,3.4rem)}
+.head{max-width:56ch;margin-bottom:clamp(1.8rem,4vw,2.8rem)}
+.head p{color:var(--mut);margin-top:1rem}
+.diag{border:1px solid var(--line);background:var(--bg2);padding:1.3rem;display:grid;gap:.6rem;text-decoration:none;transition:.18s}
+.diag:hover{border-color:var(--acc)}
+.diag .sc{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.diag .sc b{font-family:ui-monospace,monospace;font-size:1.7rem;color:var(--acc)}
+.diag .sc i{font-style:normal;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:var(--mut);font-weight:800}
+.diag h3{font-size:.98rem;font-weight:700;letter-spacing:0}
+.diag p{font-size:.86rem;color:var(--mut)}
+.diag small{font-size:.72rem;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.rows{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.row{background:var(--bg2);padding:1.15rem 1.3rem;display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
+.row span{font-family:ui-monospace,monospace;color:var(--acc);font-size:.85rem;font-weight:700;padding-top:.15rem}
+.row p{font-size:.94rem}
+.price{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--bg2);padding:1.5rem 1.35rem;display:grid;gap:.5rem;align-content:start}
+.card.hot{background:linear-gradient(180deg,#1B1512,#12161A)}
+.card b{font-family:"Archivo",sans-serif;font-size:1.9rem;letter-spacing:-.03em}
+.card b i{font-style:normal;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:block;margin-top:.2rem;font-family:inherit}
+.card ul{margin:.4rem 0 0;padding-left:1.1rem;color:var(--mut);font-size:.88rem}
+.card .tag{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--acc)}
+.steps{counter-reset:s;display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.step{counter-increment:s;border-top:2px solid var(--acc);padding-top:.9rem}
+.step::before{content:"0" counter(s);font-family:"Archivo",sans-serif;font-weight:800;color:var(--acc);font-size:1.7rem;display:block;margin-bottom:.3rem}
+.step p{color:var(--mut);font-size:.9rem;margin-top:.3rem}
+.agence{background:var(--acc);color:#0B0D0F;padding:clamp(1.8rem,4vw,3rem)}
+.agence h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}
+.agence .btn{background:#0B0D0F;color:var(--fg);border-color:#0B0D0F;margin-top:1.2rem}
+.agence .btn:hover{background:transparent;color:#0B0D0F}
+.faq{max-width:820px}
+details{border-bottom:1px solid var(--line);padding:1rem 0}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--acc);font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--mut);font-size:.92rem;margin-top:.7rem}
+form{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:1.6rem}
+label{display:grid;gap:.35rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:800}
+input,textarea,select{background:var(--bg2);border:1px solid var(--line);color:var(--fg);padding:.8rem .9rem;font:inherit;font-size:.94rem;border-radius:2px;width:100%}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--acc);outline-offset:1px}
+.full{grid-column:1/-1}
+footer{border-top:1px solid var(--line);padding:2.4rem 0;font-size:.82rem;color:var(--mut)}
+footer .cols{display:grid;gap:1.8rem;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+footer b{display:block;color:var(--fg);text-transform:uppercase;letter-spacing:.12em;font-size:.68rem;margin-bottom:.5rem}
+.mobile-cta{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);z-index:30}
+.mobile-cta a{padding:.95rem;text-align:center;font-weight:800;text-transform:uppercase;font-size:.76rem;text-decoration:none;background:var(--acc);color:#0B0D0F}
+.mobile-cta a:last-child{background:var(--bg);color:var(--fg)}
+@media(min-width:800px){nav{display:flex}.grid2{grid-template-columns:1fr 1fr}.mobile-cta{display:none}footer{padding-bottom:2.4rem}}
+</style>
+</head>
+<body>
+<div class="topbar">Audit de conformité offert · Rapport sous 24 h · Correctifs en 5 jours</div>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#top">Studio Vif<small>Conformité web · RGPD · Accessibilité</small></a>
+  <nav><a href="#preuves">Rapports</a><a href="#prix">Tarifs</a><a href="#methode">Méthode</a><a href="#agences">Agences</a><a href="#faq">FAQ</a></nav>
+  <a class="btn" href="#audit">Audit offert</a>
+</div></header>
+
+<main id="top">
+  <section class="hero"><div class="wrap">
+    <p class="kick">RGPD · RGAA · Vitesse — prix ferme</p>
+    <h1>Votre site<br>vous expose.<br><span>On le corrige<br>en 5 jours.</span></h1>
+    <p class="lead">Cookies posés sans consentement, formulaires inaccessibles, pages qui rament : on relève les défauts réels de votre site, on chiffre, on corrige. Rapport avant/après, sans jargon.</p>
+    <div class="cta"><a class="btn big" href="#audit">Recevoir l'audit gratuit</a><a class="btn big line" href="#preuves">Voir 3 rapports réels</a></div>
+    <div class="facts">
+      <div class="fact"><b>24 h</b><span>Pour le rapport</span></div>
+      <div class="fact"><b>5 j</b><span>Pour les correctifs</span></div>
+      <div class="fact"><b>0 €</b><span>L'audit, sans engagement</span></div>
+      <div class="fact"><b>Fixe</b><span>Le prix annoncé</span></div>
+    </div>
+  </div></section>
+
+  <section id="preuves"><div class="wrap">
+    <div class="head"><p class="kick">Rapports réels</p><h2>Trois sites relevés cette semaine</h2><p>Données publiques, relevé automatisé, vérifiable en ouvrant le site. C'est exactement ce que vous recevez.</p></div>
+    <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <a class="diag" href="exemples/avocats.html"><div class="sc"><b>25</b><i>Critique</i></div><h3>Cabinet d'avocats — Rennes</h3><p>Pas de version mobile, formulaire inaccessibles, 1,4 s de serveur.</p><small>Ouvrir le rapport →</small></a>
+      <a class="diag" href="exemples/agence-immo.html"><div class="sc"><b>35</b><i>Dégradé</i></div><h3>Agence immobilière — Angers</h3><p>Google Analytics et Meta Pixel avant consentement, aucune page RGPD.</p><small>Ouvrir le rapport →</small></a>
+      <a class="diag" href="exemples/pisciniste.html"><div class="sc"><b>58</b><i>Fragile</i></div><h3>Pisciniste — Vannes</h3><p>10 s de chargement, 6 images sans alternative, pas de mentions légales.</p><small>Ouvrir le rapport →</small></a>
+    </div>
+  </div></section>
+
+  <section><div class="wrap grid2">
+    <div><p class="kick">Ce qu'on relève</p><h2>Un site se juge sur ce qu'il cache</h2><p class="mut" style="margin-top:1.1rem">Chaque point est vérifié sur le site réel, avec le correctif associé. Rien de générique, rien d'inventé.</p></div>
+    <div class="rows">
+      <div class="row"><span>01</span><p><strong>Consentement cookies</strong> — tags de mesure et de publicité déposés avant accord. Premier motif de contrôle CNIL.</p></div>
+      <div class="row"><span>02</span><p><strong>Accessibilité</strong> — images sans texte alternatif, champs sans étiquette, contrastes, navigation clavier.</p></div>
+      <div class="row"><span>03</span><p><strong>Version mobile</strong> — absence de viewport, pages inutilisables au pouce, où passe 60 % du trafic.</p></div>
+      <div class="row"><span>04</span><p><strong>Vitesse</strong> — poids, temps serveur, scripts bloquants. Au-delà de 4 s, la moitié des visiteurs partent.</p></div>
+      <div class="row"><span>05</span><p><strong>Obligations légales</strong> — mentions légales, politique de confidentialité, registre, base légale des formulaires.</p></div>
+      <div class="row"><span>06</span><p><strong>Structure SEO</strong> — titles, H1, canoniques, indexation. Sans trafic, le reste ne sert à rien.</p></div>
+    </div>
+  </div></section>
+
+  <section id="prix"><div class="wrap">
+    <div class="head"><p class="kick">Tarifs</p><h2>Le prix se calcule, il ne se négocie pas</h2><p>Barème public : bloquant 280 €, majeur 140 €, mineur 50 €. Vous recevez le total avec le rapport, avant de décider.</p></div>
+    <div class="price">
+      <div class="card"><span class="tag">Point d'entrée</span><b>0 €</b><i>Audit de conformité</i><ul><li>Relevé complet du site</li><li>Chiffrage détaillé</li><li>Rapport PDF sous 24 h</li><li>Sans engagement</li></ul></div>
+      <div class="card hot"><span class="tag">Le plus demandé</span><b>590 €</b><i>Mise en conformité</i><ul><li>Tous les points bloquants et majeurs</li><li>Consentement cookies conforme</li><li>Accessibilité des parcours</li><li>Exécution en 5 jours ouvrés</li><li>Contrôle avant/après</li></ul></div>
+      <div class="card"><span class="tag">Parcours critique</span><b>1 490 €</b><i>Rendu AA + suivi</i><ul><li>Parcours devis / contact / RDV</li><li>Conformité AA vérifiée</li><li>Déclaration d'accessibilité</li><li>3 mois de suivi inclus</li></ul></div>
+      <div class="card"><span class="tag">Dans la durée</span><b>390 €</b><i>par mois</i><ul><li>Veille et alerte de régression</li><li>3 correctifs par mois</li><li>Rapport daté pour l'assurance</li><li>Sans engagement après 12 mois</li></ul></div>
+    </div>
+    <p class="mut" style="margin-top:1.2rem;font-size:.86rem">50 % à la commande, 50 % à la livraison. TVA non applicable, art. 293 B du CGI. Devis écrit systématique.</p>
+  </div></section>
+
+  <section id="methode"><div class="wrap">
+    <div class="head"><p class="kick">Méthode</p><h2>Trois étapes, aucun temps mort</h2></div>
+    <div class="steps">
+      <div class="step"><h3>Relevé</h3><p>On scanne le site réel, on vérifie à la main les parcours clés, on chiffre. Vous recevez le rapport.</p></div>
+      <div class="step"><h3>Correctifs</h3><p>Accès, on corrige, on documente. 15 minutes de votre temps au total.</p></div>
+      <div class="step"><h3>Preuve</h3><p>Nouveau relevé, captures avant/après, procédure écrite conservée. Utile en cas de contrôle.</p></div>
+    </div>
+  </div></section>
+
+  <section id="agences"><div class="wrap"><div class="agence">
+    <p class="kick" style="color:#0B0D0F">Marque blanche</p>
+    <h2>Vous gérez des sites clients ?<br>On produit, vous facturez.</h2>
+    <p style="margin-top:1rem;max-width:56ch">Audits à 45 €, à votre logo, sans contact avec vos clients. Correctifs à 40 % du tarif public. Vous gardez la relation et la marge.</p>
+    <a class="btn big" href="mailto:contact@studiovif.fr?subject=Marque%20blanche%20—%203%20audits%20gratuits">Tester avec 3 audits gratuits</a>
+  </div></div></section>
+
+  <section><div class="wrap grid2">
+    <div><p class="kick">Garanties</p><h2>Ce qu'on s'engage à tenir</h2></div>
+    <div class="rows">
+      <div class="row"><span>◆</span><p><strong>Prix fixe.</strong> Le montant du devis est le montant facturé. Aucun supplément non validé.</p></div>
+      <div class="row"><span>◆</span><p><strong>Délai écrit.</strong> 5 jours ouvrés à compter de la réception des accès. Retard de notre fait : −10 % par jour.</p></div>
+      <div class="row"><span>◆</span><p><strong>Réversible.</strong> Sauvegarde avant intervention, restauration possible à tout moment.</p></div>
+      <div class="row"><span>◆</span><p><strong>Documenté.</strong> Registre des correctifs remis, exploitable en cas de contrôle CNIL ou de litige.</p></div>
+    </div>
+  </div></section>
+
+  <section id="faq"><div class="wrap faq">
+    <p class="kick">Questions</p><h2 style="margin-bottom:1.6rem">Ce qu'on nous demande</h2>
+    <details><summary>L'audit est vraiment gratuit ?</summary><p>Oui. On le fait pour entrer en relation, et parce qu'un rapport précis vaut mieux qu'un argumentaire. Vous n'avez aucune obligation d'aller plus loin.</p></details>
+    <details><summary>Je risque quoi si je ne fais rien ?</summary><p>Une mise en demeure CNIL sur les cookies, un signalement à la DGCCRF sur l'accessibilité, et surtout des demandes de devis perdues : un site lent ou illisible au téléphone, ça se traduit en appels manqués.</p></details>
+    <details><summary>Vous touchez à mon design ?</summary><p>Non. On corrige le socle technique et les parcours sans refonte graphique. Si une refonte est nécessaire, on le dit mais on ne l'impose pas.</p></details>
+    <details><summary>Qui êtes-vous ?</summary><p>Studio Vif, deux personnes, uniquement de la conformité web : audit, correctifs, suivi. Anciens de l'intégration côté agence.</p></details>
+    <details><summary>Vous travaillez partout en France ?</summary><p>Oui, tout se fait à distance. Les accès se donnent en visio ou par gestionnaire de mots de passe.</p></details>
+  </div></section>
+
+  <section id="audit"><div class="wrap grid2">
+    <div>
+      <p class="kick">Audit offert</p>
+      <h2>Donnez l'adresse<br>de votre site</h2>
+      <p class="mut" style="margin-top:1.1rem">Vous recevez le rapport et le prix sous 24 h ouvrées. Rien d'autre, pas d'appel si vous ne le demandez pas.</p>
+      <p class="mut" style="margin-top:1.2rem;font-size:.88rem">Ou par mail : <a href="mailto:contact@studiovif.fr" style="color:var(--acc)"><strong>contact@studiovif.fr</strong></a></p>
+    </div>
+    <form action="https://formsubmit.co/contact@studiovif.fr" method="POST">
+      <label class="full">Adresse du site<input name="site" placeholder="mon-entreprise.fr" required></label>
+      <label>Nom<input name="nom" required></label>
+      <label>Email<input name="email" type="email" required></label>
+      <label class="full">Ce qui vous préoccupe (facultatif)<textarea name="message" rows="3"></textarea></label>
+      <input type="hidden" name="_subject" value="Demande d'audit — Studio Vif">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
+      <div class="full"><button class="btn big" type="submit" style="cursor:pointer;font-family:inherit">Recevoir mon audit gratuit</button></div>
+    </form>
+  </div></section>
+</main>
+
+<footer><div class="wrap cols">
+  <div><b>Studio Vif</b>Conformité web · RGPD · Accessibilité<br>Nantes (44)</div>
+  <div><b>Contact</b><a href="mailto:contact@studiovif.fr">contact@studiovif.fr</a><br>Réponse sous 24 h ouvrées</div>
+  <div><b>Infos</b>SIRET à jour au lancement<br>TVA non applicable, art. 293 B du CGI<br>© 2026 Studio Vif</div>
+</div></footer>
+
+<div class="mobile-cta"><a href="#audit">Audit gratuit</a><a href="mailto:contact@studiovif.fr">Écrire</a></div>
+</body>
+</html>
